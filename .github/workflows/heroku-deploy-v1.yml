@@ -59,7 +59,8 @@ jobs:
       env:
           HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
     - name: Deploy to Heroku
-      run: |
+      run: |        
+        git fetch --all --unshallow        
         git push heroku main
        
        
