@@ -37,7 +37,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: test
       run: |
-        python3 -m unittest test.py
+        python3 -m unittest tests.py
       env:
         CI: true
     - name: Add remote origin
