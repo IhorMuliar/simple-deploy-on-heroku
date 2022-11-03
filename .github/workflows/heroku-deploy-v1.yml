@@ -42,7 +42,7 @@ jobs:
       env:
         CI: true
     - name: Heroku login credentials
-      run:
+      run: |
           cat > ~/.netrc <<EOF
             machine api.heroku.com
               login $HEROKU_EMAIL
@@ -55,12 +55,12 @@ jobs:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
           HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
     - name: Add Heroku remote
-      run:
+      run: |
         heroku git:remote --app $HEROKU_APP_NAME
       env:
           HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
     - name: Deploy to Heroku
-      run:             
+      run: |         
         git push heroku main
         curl https://{$HEROKU_APP_NAME}.herokuapp.com/
        
