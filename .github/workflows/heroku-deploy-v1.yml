@@ -42,6 +42,6 @@ jobs:
         CI: true
     - name: Deploy to Heroku
       run: |
-        git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
-        git fetch --all --unshallow
-        git push heroku HEAD:main -f
+        git remote add heroku_repo https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
+        git fetch --all --unshallow heroku_repo
+        git push heroku_repo HEAD:main -f
